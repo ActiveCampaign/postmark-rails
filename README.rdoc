@@ -1,33 +1,43 @@
 = Postmark rails gem
 
-Postmark plug-in for ActionMailer 
+Postmark plug-in for ActionMailer
 
-== Installation
+== Install
 
+The gem is hosted at gemcutter. If you don't have it, install it first:
+
+    sudo gem install gemcutter
+    gem tumble
+
+Then
     sudo gem install postmark-rails
 
 == Example
-    
+
     #config/environment.rb
 
     Rails::Initializer.run do |config|
+
       config.gem 'postmark-rails'
       config.action_mailer.delivery_method = :postmark
       config.action_mailer.postmark_api_key = "your-api-key"
       # ...
     end
 
+== Limitations
+  Currently postmark API does not support multiple recipients, or attachments. For more information, check the docs here:
+  TODO: URL to docs.
+
 == Requirements
 
-You will also need postmark account, server and sender signature set up to use it. 
+You will also need postmark account, server and sender signature set up to use it.
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.  
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright
