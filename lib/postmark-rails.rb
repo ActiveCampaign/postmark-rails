@@ -1,4 +1,5 @@
 require 'postmark'
+require 'action_mailer'
 
 module PostmarkMethods
   def perform_delivery_postmark(message)
