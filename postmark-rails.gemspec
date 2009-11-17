@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{postmark-rails}
-  s.version = "0.1.0"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Petyo Ivanov"]
-  s.date = %q{2009-11-04}
+  s.date = %q{2009-11-17}
   s.description = %q{Use this plugin in your rails applications to send emails through the Postmark API}
   s.email = %q{underlog@gmail.com}
   s.extra_rdoc_files = [
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/postmark-rails.rb",
+     "postmark-rails.gemspec",
      "spec/fixtures/models/test_mailer.rb",
      "spec/fixtures/views/test_mailer/multipart_message.text.html.erb",
      "spec/fixtures/views/test_mailer/multipart_message.text.plain.erb",
@@ -33,9 +34,15 @@ Gem::Specification.new do |s|
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://postmarkapp.com}
+  s.post_install_message = %q{
+      ==================
+      Thanks for installing the postmark-rails gem. If you don't have an account, please sign up at http://postmarkapp.com/.
+      Review the README.rdoc for implementation details and examples.
+      ==================
+    }
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Postmark adapter for ActionMailer}
   s.test_files = [
     "spec/fixtures/models/test_mailer.rb",

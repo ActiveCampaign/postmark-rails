@@ -12,6 +12,13 @@ begin
     gem.authors = ["Petyo Ivanov"]
     gem.add_development_dependency "rspec"
     gem.add_dependency 'postmark'
+
+    gem.post_install_message = %q[
+      ==================
+      Thanks for installing the postmark-rails gem. If you don't have an account, please sign up at http://postmarkapp.com/.
+      Review the README.rdoc for implementation details and examples.
+      ==================
+    ]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
