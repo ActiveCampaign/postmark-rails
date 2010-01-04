@@ -26,8 +26,7 @@ Then
     end
 
 == Limitations
-  Currently postmark API does not support multiple recipients, or attachments. For more information, check the docs here:
-  TODO: URL to docs.
+  Currently postmark API does not support multiple recipients, or attachments. For more information, check the docs at http://developer.postmarkapp.com.
 
 == Requirements
 
