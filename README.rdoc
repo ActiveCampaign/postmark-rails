@@ -14,20 +14,26 @@ Then
 
 == Example
 
-    #config/environment.rb
+  config/environment.rb
 
     Rails::Initializer.run do |config|
 
       config.gem 'postmark-rails'
       require 'postmark-rails'
-      config.action_mailer.delivery_method = :postmark
       config.action_mailer.postmark_api_key = "your-api-key"
       # ...
     end
 
+The, make postmark the delivery method for the production environment:
+
+  config/environments/production.rb
+
+    config.action_mailer.delivery_method = :postmark
+
 == Limitations
-  Currently postmark API does not support multiple recipients, or attachments. For more information, check the docs here:
-  TODO: URL to docs.
+
+Currently postmark API does not support multiple recipients, or attachments. For more information, check the docs at:
+http://developer.postmarkapp.com
 
 == Requirements
 
