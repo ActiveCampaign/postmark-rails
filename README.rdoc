@@ -24,7 +24,7 @@ Then
       # ...
     end
 
-The, make postmark the delivery method for the production environment:
+Next, make postmark the delivery method for the production environment:
 
   config/environments/production.rb
 
