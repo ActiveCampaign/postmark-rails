@@ -14,29 +14,35 @@ Then
 
 == Example
 
-    #config/environment.rb
+  config/environment.rb
 
     Rails::Initializer.run do |config|
 
       config.gem 'postmark-rails'
       require 'postmark-rails'
-      config.action_mailer.delivery_method = :postmark
       config.action_mailer.postmark_api_key = "your-api-key"
       # ...
     end
 
-    # tagging message for tracking delivery
+Next, make postmark the delivery method for the production environment:
+
+  config/environments/production.rb
+
+    config.action_mailer.delivery_method = :postmark
+
+You may also tag messages, in order to track bounces more precisely.
 
     class TestMailer < ActionMailer::Base
       def tagged_message
         subject    'hello'
         recipients 'sheldon@bigbangtheory.com'
         from       'leonard@bigbangtheory.com'
-        tag        'delivery' # Tag should be a single string
+        tag        'delivery'
       end
     end
 
 == Limitations
+
   Currently postmark API does not support attachments. For more information, check the docs here:
   http://developer.postmarkapp.com
 
