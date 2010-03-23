@@ -12,4 +12,11 @@ class TestMailer < ActionMailer::Base
     from       'leonard@bigbangtheory.com'
   end
 
+  def tagged_message
+    subject    'hello'
+    recipients 'sheldon@bigbangtheory.com'
+    from       'leonard@bigbangtheory.com'
+    tag        'delivery'
+  end
+
 end
