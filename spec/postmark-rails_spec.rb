@@ -16,4 +16,13 @@ describe "PostmarkRails" do
     TestMailer.deliver_tagged_message
   end
 
+  it "should work with multipart messages" do
+    Postmark.should_receive(:send_through_postmark) do |message|
+        message.should be_multipart
+        message.body_text.should == "plain text"
+        message.body_html.should == "html text"
+    end
+    TestMailer.deliver_multipart_message
+  end
+
 end
