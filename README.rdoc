@@ -10,12 +10,12 @@ The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via 
 
 == Install
 
-sudo gem install postmark
-sudo gem install postmark-rails
+    sudo gem install postmark
+    sudo gem install postmark-rails
 
 == Requirements
 
-* Postmark version 0.8 and higher is required.
+* "postmark" gem version 0.8 and higher is required.
 * You will also need a Postmark account, server and sender signature set up to use it. To get an account, sign up at http://postmarkapp.com.
 
 == Configuring your Rails application
@@ -46,7 +46,7 @@ Add this to config/environment.rb:
       
     end
 
-For full API details, refer to the developer documentation at http://developer.postmarkapp.com.
+For API details, refer to the developer documentation at http://developer.postmarkapp.com.
 
 == Tagging your deliveries
 
