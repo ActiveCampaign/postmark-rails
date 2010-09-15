@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Petyo Ivanov", "Ilya Sabanin"]
-  s.date = %q{2010-09-15}
+  s.date = %q{2010-09-16}
   s.description = %q{Use this plugin in your rails applications to send emails through the Postmark API}
   s.email = %q{ilya@wildbit.com}
   s.extra_rdoc_files = [
@@ -19,16 +19,19 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "CHANGELOG.rdoc",
      "Gemfile",
      "Gemfile.lock",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "lib/postmark-rails.rb",
+     "lib/postmark_delivery_method.rb",
      "postmark-rails.gemspec",
      "spec/fixtures/models/test_mailer.rb",
-     "spec/fixtures/views/test_mailer/multipart_message.text.html.erb",
-     "spec/fixtures/views/test_mailer/multipart_message.text.plain.erb",
+     "spec/fixtures/views/test_mailer/multipart_message.html.erb",
+     "spec/fixtures/views/test_mailer/multipart_message.text.erb",
      "spec/fixtures/views/test_mailer/simple_message.erb",
      "spec/fixtures/views/test_mailer/tagged_message.erb",
      "spec/postmark-rails_spec.rb",
