@@ -1,63 +1,100 @@
-= Postmark rails gem
+= postmark-rails gem
 
-Postmark plug-in for ActionMailer
+The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via Postmark, an email delivery service for web apps. The gem has been created for fast implementation and fully supports all of Postmark’s features.
+
+== Supported Rails Versions
+
+* lower than 2.3: could work, but not tested
+* 2.3 and higher
+* 3.0
 
 == Install
 
-The gem is hosted at gemcutter. If you don't have it, install it first:
-
-    sudo gem install gemcutter
-    gem tumble
-
-Then
-    sudo gem install postmark-rails
-
-== Example
-
-  config/environment.rb
-
-    Rails::Initializer.run do |config|
-
-      config.gem 'postmark-rails'
-      require 'postmark-rails'
-      config.action_mailer.postmark_api_key = "your-api-key"
-      # ...
-    end
-
-Next, make postmark the delivery method for the production environment:
-
-  config/environments/production.rb
-
-    config.action_mailer.delivery_method = :postmark
-
-You may also tag messages, in order to track bounces more precisely.
-
-    class TestMailer < ActionMailer::Base
-      def tagged_message
-        subject    'hello'
-        recipients 'sheldon@bigbangtheory.com'
-        from       'leonard@bigbangtheory.com'
-        tag        'delivery'
-      end
-    end
-
-== Limitations
-
-  Currently postmark API does not support attachments. For more information, check the docs here:
-  http://developer.postmarkapp.com
+sudo gem install postmark
+sudo gem install postmark-rails
 
 == Requirements
 
-You will also need postmark account, server and sender signature set up to use it.
+* Postmark version 0.8 and higher is required.
+* You will also need a Postmark account, server and sender signature set up to use it. To get an account, sign up at http://postmarkapp.com.
+
+== Configuring your Rails application
+
+=== Rails 3
+
+Add this to your config/application.rb:
+
+    config.action_mailer.delivery_method   = :postmark
+    config.action_mailer.postmark_settings = { :api_key => "your-api-key" }
+    
+=== Rails 2
+
+Add this to config/environment.rb:
+
+    Rails::Initializer.run do |config|
+    
+      ...
+    
+      config.gem 'postmark'
+      config.gem 'postmark-rails'
+      require    'postmark-rails'
+      
+      config.action_mailer.postmark_api_key = "your-api-key"
+      config.action_mailer.delivery_method  = :postmark
+      
+      ...
+      
+    end
+
+For full API details, refer to the developer documentation at http://developer.postmarkapp.com.
+
+== Tagging your deliveries
+
+You can use a tag to categorize outgoing messages and attach application-specific information. Tagging the different types of email that you send lets you review statistics and bounce reports separately. Read more at http://developer.postmarkapp.com/developer-build.html#message-format.
+
+=== Rails 3
+
+    class TestMailer < ActionMailer::Base
+    
+      def tagged_message
+        mail(
+          :subject => 'hello',
+          :to      => 'sheldon@bigbangtheory.com',
+          :from    => 'leonard@bigbangtheory.com',
+          :tag     => 'my-tag'
+        )
+      end
+      
+    end
+      
+=== Rails 2
+
+    class SuperMailer < ActionMailer::Base
+    
+      def email
+        from       "no-reply@beanseedapp.com"
+        subject    "Testing new gem for Postmark"
+        recipients "ilya@wildbit.com"
+        tag        "my-another-tag"
+      end
+    
+    end
 
 == Note on Patches/Pull Requests
 
 * Fork the project.
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Add tests for it. This is important so we don’t break it in a future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
-* Send me a pull request. Bonus points for topic branches.
+* Send a pull request. Bonus points for topic branches.
+
+== Authors & Contributors
+
+* Petyo Ivanov
+* Ilya Sabanin
+* Hristo Deshev
+* Randy Schmidt
 
 == Copyright
 
-Copyright (c) 2009 Wildbit LLC. See LICENSE for details.
+Copyright © 2010 Wildbit LLC. See LICENSE for details.

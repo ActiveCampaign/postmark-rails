@@ -1,32 +1,20 @@
 class TestMailer < ActionMailer::Base
-
+  default :subject  => 'hello', 
+          :to       => 'sheldon@bigbangtheory.com', 
+          :from     => 'leonard@bigbangtheory.com'
+          
   def simple_message
-    subject    'hello'
-    recipients 'sheldon@bigbangtheory.com'
-    from       'leonard@bigbangtheory.com'
-  end
-
-  def multipart_message
-    subject    'hello'
-    recipients 'sheldon@bigbangtheory.com'
-    from       'leonard@bigbangtheory.com'
+    mail
   end
 
   def tagged_message
-    subject    'hello'
-    recipients 'sheldon@bigbangtheory.com'
-    from       'leonard@bigbangtheory.com'
-    tag        'delivery'
+    mail(:tag => 'delivery')
   end
 
   def multipart_message
-    recipients "sheldon@bigbangtheory.com"
-    from       'leonard@bigbangtheory.com'
-    subject "Your invitation to join Mixlr." 
-    sent_on Time.now 
-    content_type "multipart/alternative"
-    part :content_type => "text/plain", :body => "plain text"
-    part :content_type => "text/html", :body => "html text"
+    mail(:subject => "Your invitation to join Mixlr.") do |format|
+      format.text
+      format.html
+    end
   end
-
 end

@@ -7,11 +7,9 @@ begin
     gem.name = "postmark-rails"
     gem.summary = %Q{Postmark adapter for ActionMailer}
     gem.description = %Q{Use this plugin in your rails applications to send emails through the Postmark API}
-    gem.email = "underlog@gmail.com"
+    gem.email = "ilya@wildbit.com"
     gem.homepage = "http://postmarkapp.com"
-    gem.authors = ["Petyo Ivanov"]
-    gem.add_development_dependency "rspec"
-    gem.add_dependency 'postmark'
+    gem.authors = ["Petyo Ivanov", "Ilya Sabanin"]
 
     gem.post_install_message = %q[
       ==================
