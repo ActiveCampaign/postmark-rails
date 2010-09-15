@@ -1,5 +1,6 @@
 require 'action_mailer'
 require 'postmark'
+require 'postmark_delivery_method'
 
 module PostmarkInstaller
   extend self
@@ -21,3 +22,5 @@ module PostmarkInstaller
   end
   
 end
+
+PostmarkInstaller.auto_detect_and_install
