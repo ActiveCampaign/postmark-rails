@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require 'rubygems'
 require 'postmark'
-require 'init'
+require 'lib/postmark-rails'
 require 'spec'
 require 'spec/autorun'
 
