@@ -15,7 +15,7 @@ module PostmarkDeliveryMethod
     base.extend(ClassMethods)
     
     base.class_eval do      
-      alias_method_chain :create_mail, :postmark_extras      
+      alias_method_chain :create_mail, :postmark_extras
     end
   end
   

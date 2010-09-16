@@ -96,14 +96,12 @@ You can also send file attachments with Postmark. Read more here: http://develop
     class TestMailer < ActionMailer::Base
     
       def message_with_attachment
-        returning message = nil do
-          message = mail(
-            :subject => 'hello',
-            :to      => 'sheldon@bigbangtheory.com',
-            :from    => 'leonard@bigbangtheory.com'
-          )
-          message.postmark_attachments = [File.open("/path/to/file")]
-        end
+        mail(
+          :subject              => 'hello',
+          :to                   => 'sheldon@bigbangtheory.com',
+          :from                 => 'leonard@bigbangtheory.com',
+          :postmark_attachments => [File.open("/path/to/file")]
+        )
       end
       
     end
@@ -124,11 +122,11 @@ You can also send file attachments with Postmark. Read more here: http://develop
 You can pass either an array of File objects or a single object. Postmark will detect the file name automatically and send an attachment with the "application/octet-stream" content type. If you want more control on how attachments get formatted, you can pass Hash objects, which contain the custom settings such as file name or content-type. Here is an example:
 
     #
-    # Don't forget to read your file and base64-encode it!
+    # Don't forget to read your file and base64-encode it,
+    # before assigning it to "Content".
     #
     message.postmark_attachments = {
       "Name"        => "fancy-file-name.jpg",
-      # read the file content and base64-encode it
       "Content"     => [ IO.read("path/to/file") ].pack("m"),
       "ContentType" => "image/jpeg"
     }
