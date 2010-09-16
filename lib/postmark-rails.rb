@@ -19,6 +19,7 @@ module PostmarkInstaller
   
   def install_in_rails_3
     ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark, :api_key => nil
+    Mail::Message.send(:include, Postmark::AttachmentsFixForMail)
   end
   
 end
