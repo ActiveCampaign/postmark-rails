@@ -121,8 +121,11 @@ You can also send file attachments with Postmark. Read more here: http://develop
     
     end
     
-You can pass either an array of File objects or a single object. Postmark will detect file name automatically. Alternatively you can pass Hash objects instead of File objects. That's especially useful if you want to specify custom file name or content-type. Do it like that:
+You can pass either an array of File objects or a single object. Postmark will detect file name automatically. Alternatively you can pass Hash objects, which is especially useful if you want to specify custom file name or content-type. Do it like that:
 
+    #
+    # Don't forget to read your file and base64-encode it!
+    #
     message.postmark_attachments = {
       "Name"        => "fancy-file-name.jpg",
       "Content"     => [ IO.read("path/to/file") ].pack("m"),
