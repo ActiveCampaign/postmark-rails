@@ -15,7 +15,7 @@ module PostmarkDeliveryMethod
     base.extend(ClassMethods)
     
     base.class_eval do      
-      alias_method_chain :create_mail, :tag      
+      alias_method_chain :create_mail, :postmark_extras      
     end
   end
   
@@ -26,10 +26,15 @@ module PostmarkDeliveryMethod
   def tag(value)
     @tag = value
   end
+  
+  def postmark_attachments(value)
+    @attachments = value
+  end
 
-  def create_mail_with_tag
-    returning create_mail_without_tag do |mail|
-      mail.tag = @tag if @tag
+  def create_mail_with_postmark_extras
+    returning create_mail_without_postmark_extras do |mail|
+      mail.tag = @tag                          if @tag
+      mail.postmark_attachments = @attachments if @attachments
     end
   end
   

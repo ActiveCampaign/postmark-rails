@@ -79,13 +79,55 @@ You can use a tag to categorize outgoing messages and attach application-specifi
     class SuperMailer < ActionMailer::Base
     
       def email
-        from       "no-reply@beanseedapp.com"
-        subject    "Testing new gem for Postmark"
-        recipients "ilya@wildbit.com"
+        from       "no-reply@example.com"
+        subject    "Some marvelous email message"
+        recipients "someone-fancy@example.com"
         tag        "my-another-tag"
       end
     
     end
+
+== Sending attachments
+
+You can also send file attachments with Postmark. Read more here: http://developer.postmarkapp.com/developer-build.html#attachments
+
+=== Rails 3
+
+    class TestMailer < ActionMailer::Base
+    
+      def message_with_attachment
+        returning message = nil do
+          message = mail(
+            :subject => 'hello',
+            :to      => 'sheldon@bigbangtheory.com',
+            :from    => 'leonard@bigbangtheory.com'
+          )
+          message.postmark_attachments = [File.open("/path/to/file")]
+        end
+      end
+      
+    end
+
+=== Rails 2
+
+    class SuperMailer < ActionMailer::Base
+    
+      def email
+        from                 "no-reply@example.com"
+        subject              "Some marvelous email message"
+        recipients           "someone-fancy@example.com"
+        postmark_attachments [File.open("/path/to/file")]
+      end
+    
+    end
+    
+You can pass either an array of File objects or a single object. Postmark will detect file name automatically. Alternatively you can pass Hash objects instead of File objects. That's especially useful if you want to specify custom file name or content-type. Do it like that:
+
+    message.postmark_attachments = {
+      "Name"        => "fancy-file-name.jpg",
+      "Content"     => [ IO.read("path/to/file") ].pack("m"),
+      "ContentType" => "image/jpeg"
+    }
 
 == Note on Patches/Pull Requests
 
@@ -101,6 +143,7 @@ You can use a tag to categorize outgoing messages and attach application-specifi
 * Ilya Sabanin
 * Hristo Deshev
 * Randy Schmidt
+* Chris Williams
 
 == Copyright
 
