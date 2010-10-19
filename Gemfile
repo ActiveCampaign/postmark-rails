@@ -1,11 +1,10 @@
 source "http://rubygems.org"
 
-gem "actionmailer"
-gem "postmark", ">= 0.9.0"
-gem "rake"
+gemspec
 
 group :test do
-  gem "ruby-debug"
+  gem "ruby-debug",   :platforms => [:ruby_18]
+  gem "ruby-debug19", :platforms => [:ruby_19]
   gem "rspec"
   gem "jeweler"
 end

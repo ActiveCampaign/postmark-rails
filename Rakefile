@@ -11,6 +11,10 @@ begin
     gem.homepage = "http://postmarkapp.com"
     gem.authors = ["Petyo Ivanov", "Ilya Sabanin"]
 
+    gem.add_dependency "actionmailer"
+    gem.add_dependency "postmark", ">= 0.9.0"
+    gem.add_dependency "rake"
+
     gem.post_install_message = %q[
       ==================
       Thanks for installing the postmark-rails gem. If you don't have an account, please sign up at http://postmarkapp.com/.
