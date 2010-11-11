@@ -32,7 +32,7 @@ module PostmarkDeliveryMethod
   end
 
   def create_mail_with_postmark_extras
-    returning create_mail_without_postmark_extras do |mail|
+    create_mail_without_postmark_extras.tap do |mail|
       mail.tag = @tag                          if @tag
       mail.postmark_attachments = @attachments if @attachments
     end
