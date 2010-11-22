@@ -144,6 +144,7 @@ You can pass either an array of File objects or a single object. Postmark will d
 * Randy Schmidt
 * Chris Williams
 * Nicolás Sanguinetti
+* Laust Rud Jacobsen (rud)
 
 == Copyright
 
