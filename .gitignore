@@ -6,3 +6,4 @@ pkg
 .rake_tasks
 .bundle
 .rvmrc
+Gemfile.lock
