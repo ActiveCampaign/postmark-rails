@@ -23,7 +23,7 @@ The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via 
 
 Add this to your Gemfile: (change version numbers if needed)
 
-    gem 'postmark-rails', '0.4.0'
+    gem 'postmark-rails', '0.4.1'
     
 Don't forget to run "bundle install" command every time you change something in the Gemfile.
 
