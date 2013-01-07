@@ -4,8 +4,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'rubygems'
 require 'postmark'
 require 'postmark-rails'
-require 'spec'
-require 'spec/autorun'
 
 ActionMailer::Base.delivery_method = :postmark
 ActionMailer::Base.prepend_view_path(File.join(File.dirname(__FILE__), "fixtures", "views"))
