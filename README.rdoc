@@ -86,18 +86,22 @@ You can use a tag to categorize outgoing messages and attach application-specifi
 
 == Sending attachments
 
-You can also send file attachments with Postmark. Read more here: http://developer.postmarkapp.com/developer-build.html#attachments
+You can also send file attachments with Postmark. Read our Developer docs for additional information: http://developer.postmarkapp.com/developer-build.html#attachments.
+
+The Postmark gem is compatible with [ActionMailer attachments API](http://api.rubyonrails.org/classes/ActionMailer/Base.html#method-i-attachments).
+
+The legacy #postmark_attachments method is no longer supported on Rails 3.2.13 and above.
 
 === Rails 3
 
     class TestMailer < ActionMailer::Base
     
       def message_with_attachment
+        attachment['42.jpg'] = File.read("/path/to/file")
         mail(
           :subject              => 'hello',
           :to                   => 'sheldon@bigbangtheory.com',
-          :from                 => 'leonard@bigbangtheory.com',
-          :postmark_attachments => [File.open("/path/to/file")]
+          :from                 => 'leonard@bigbangtheory.com'
         )
       end
       
