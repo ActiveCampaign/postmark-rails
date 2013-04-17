@@ -5,3 +5,4 @@ rdoc
 pkg
 .rake_tasks
 .bundle
+.rvmrc
