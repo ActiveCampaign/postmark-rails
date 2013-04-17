@@ -9,14 +9,3 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 
 task :default => :spec
-
-require 'rdoc/task'
-desc 'Generate documentation'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = "postmark #{Postmark::Rails::VERSION}"
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README.rdoc')
-  rdoc.rdoc_files.include('lib/postmark-rails.rb')
-  rdoc.rdoc_files.include('lib/postmark-rails/**/*.rb')
-end
