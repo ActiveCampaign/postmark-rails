@@ -1,5 +1,7 @@
 = postmark-rails gem
 
+{<img src="https://travis-ci.org/wildbit/postmark-rails.png?branch=master" alt="Build Status" />}[https://travis-ci.org/wildbit/postmark-rails] {<img src="https://codeclimate.com/github/wildbit/postmark-rails.png" />}[https://codeclimate.com/github/wildbit/postmark-rails]
+
 The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via Postmark, an email delivery service for web apps. The gem has been created for fast implementation and fully supports all of Postmark’s features.
 
 == Supported Rails Versions
