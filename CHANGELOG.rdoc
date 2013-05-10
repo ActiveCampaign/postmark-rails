@@ -1,5 +1,20 @@
 = Changelog
 
+== 0.5.0
+
+* Added integration specs.
+* Updated the postmark gem dependency to 1.0.x.
+* Removed attachments fix.
+* Replaced README.rdoc with README.md.
+* Added unit and integration tests for messages with attachemtns.
+* Added batch delivery support.
+
+== 0.4.2
+
+* Updated the gem’s environment.
+* Fixed the postmark gem dependency on 0.9.x.
+* Added Travis-CI for integration testing.
+
 == 0.4.1
 
 * Fixed "returning" deprecation warning.
