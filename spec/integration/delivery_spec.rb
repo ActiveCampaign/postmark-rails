@@ -24,4 +24,10 @@ describe "Delivering messages with postmark-rails" do
 
     expect { message.deliver }.to change{message.delivered?}.to(true)
   end
+
+  it 'delivers a message with attachments' do
+    message = TestMailer.message_with_attachment
+
+    expect { message.deliver }.to change{message.delivered?}.to(true)
+  end
 end
