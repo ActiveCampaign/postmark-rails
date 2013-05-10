@@ -13,13 +13,13 @@ Gem::Specification.new do |s|
   s.post_install_message = %q{
     ==================
     Thanks for installing the postmark-rails gem. If you don't have an account, please sign up at http://postmarkapp.com/.
-    Review the README.rdoc for implementation details and examples.
+    Review the README.md for implementation details and examples.
     ==================
   }
 
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.rdoc_options = ["--charset=UTF-8"]
 
