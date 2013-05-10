@@ -33,4 +33,12 @@ describe "PostmarkRails3" do
     end
     TestMailer.multipart_message.deliver
   end
+
+  it 'should work with messages containing attachments' do
+    Postmark::ApiClient.should_receive(:new) { api_client }
+    api_client.should_receive(:deliver_message) do |message|
+      message.should have_attachments
+    end
+    TestMailer.message_with_attachment.deliver
+  end
 end
