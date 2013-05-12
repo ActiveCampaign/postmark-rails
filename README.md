@@ -102,7 +102,7 @@ The legacy `:postmark_attachments` attribute is *no longer supported* on Rails 3
 class TestMailer < ActionMailer::Base
 
   def message_with_attachment
-    attachment['42.jpg'] = File.read("/path/to/file")
+    attachments['42.jpg'] = File.read("/path/to/file")
     mail(
       :subject              => 'hello',
       :to                   => 'sheldon@bigbangtheory.com',
