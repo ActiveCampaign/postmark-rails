@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   ]
   s.rdoc_options = ["--charset=UTF-8"]
 
-  s.add_dependency('actionmailer')
+  s.add_dependency('actionmailer', ">= 3.0.0")
   s.add_dependency('postmark', "~> 1.0")
   s.add_development_dependency('rake')
 
