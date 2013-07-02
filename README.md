@@ -6,13 +6,12 @@ The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via 
 
 ## Supported Rails Versions
 
-* 4.0
-* 3.x
-* 2.3.x
+* Rails 4.0
+* Rails 3.x
+
+For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/postmark-rails/tree/v0.4.2). It may miss some new features, but receives all required bug fixes and other support if needed.
 
 ## Configuring your Rails application
-
-### Rails 3 and above
 
 Add this to your Gemfile: (change version numbers if needed)
 
@@ -29,33 +28,11 @@ config.action_mailer.delivery_method = :postmark
 config.action_mailer.postmark_settings = { :api_key => "your-api-key" }
 ```
 
-### Rails 2.x
-
-Add this to the config/environment.rb file:
-
-``` ruby
-Rails::Initializer.run do |config|
-
-  # ...
-
-  config.gem 'postmark-rails'
-  require 'postmark-rails'
-
-  config.action_mailer.postmark_api_key = "your-api-key"
-  config.action_mailer.delivery_method = :postmark
-
-  # ...
-
-end
-```
-
 For the API details, refer to the [developer documentation](http://developer.postmarkapp.com).
 
 ## Tagging your deliveries
 
 You can use tags to categorize outgoing messages and attach application-specific information. Tagging the different types of email that you send lets you [review statistics and bounce reports separately](http://developer.postmarkapp.com/developer-build.html#message-format).
-
-### Rails 3 and above
 
 ``` ruby
 class TestMailer < ActionMailer::Base
@@ -72,26 +49,9 @@ class TestMailer < ActionMailer::Base
 end
 ```
 
-### Rails 2
-
-``` ruby
-class SuperMailer < ActionMailer::Base
-
-  def email
-    from       "no-reply@example.com"
-    subject    "Some marvelous email message"
-    recipients "someone-fancy@example.com"
-    tag        "my-another-tag"
-  end
-
-end
-```
-
 ## Sending attachments
 
 You can also send file attachments with Postmark. Read our Developer docs for [additional information](http://developer.postmarkapp.com/developer-build.html#attachments).
-
-### Rails 3 and above
 
 The Postmark gem is compatible with [ActionMailer attachments API](http://api.rubyonrails.org/classes/ActionMailer/Base.html#method-i-attachments). It allows you to specify the name, content-type and other attributes for your attachments.
 
@@ -111,35 +71,6 @@ class TestMailer < ActionMailer::Base
   end
 
 end
-```
-
-### Rails 2
-
-``` ruby
-class SuperMailer < ActionMailer::Base
-
-  def email
-    from                 "no-reply@example.com"
-    subject              "Some marvelous email message"
-    recipients           "someone-fancy@example.com"
-    postmark_attachments [File.open("/path/to/file")]
-  end
-
-end
-```
-
-You can pass either an array of File objects or a single object. Postmark will detect the file name automatically and send an attachment with the "application/octet-stream" content type. If you want more control on how attachments get formatted, you can pass Hash objects, which contain the custom settings such as file name or content-type. Here is an example:
-
-``` ruby
-#
-# Don't forget to read your file and base64-encode it,
-# before assigning it to "Content".
-#
-message.postmark_attachments = {
-  "Name"        => "fancy-file-name.jpg",
-  "Content"     => [ IO.read("path/to/file") ].pack("m"),
-  "ContentType" => "image/jpeg"
-}
 ```
 
 ## Sending in batches
