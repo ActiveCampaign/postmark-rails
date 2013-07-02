@@ -1,5 +1,10 @@
 = Changelog
 
+== 0.5.1
+
+* Upgraded actionmailer dependency to use >= 3.0.0.
+* Added multiple gemfiles to test against multiple actionmailer versions (currently 3.0.x, 3.2.x, 4.0.x).
+
 == 0.5.0
 
 * Added integration specs.
