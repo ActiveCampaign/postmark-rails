@@ -5,3 +5,16 @@ rvm:
   - "1.9.3"
   - "2.0.0"
 script: bundle exec rake spec
+gemfile:
+  - Gemfile
+  - gemfiles/Gemfile.actionmailer-3.0.x
+  - gemfiles/Gemfile.actionmailer-3.2.x
+  - gemfiles/Gemfile.actionmailer-4.0.x
+matrix:
+  exclude:
+    - rvm: 1.8.7
+      gemfile: gemfiles/Gemfile.actionmailer-4.0.x
+      env: ISOLATED=true
+    - rvm: 1.9.2
+      gemfile: gemfiles/Gemfile.actionmailer-4.0.x
+      env: ISOLATED=true
