@@ -1,8 +1,8 @@
 require 'action_mailer'
 require 'postmark'
-require 'postmark_delivery_method'
+require 'postmark-rails/delivery_method'
 
-module PostmarkInstaller
+module PostmarkRails
   extend self
 
   def auto_detect_and_install
@@ -14,13 +14,12 @@ module PostmarkInstaller
   end
 
   def install_in_legacy_rails
-    ActionMailer::Base.send(:include, PostmarkDeliveryMethod)
+    ActionMailer::Base.send(:include, PostmarkRails::DeliveryMethod)
   end
 
   def install_in_rails
     ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark, :api_key => nil
   end
-
 end
 
-PostmarkInstaller.auto_detect_and_install
+PostmarkRails.auto_detect_and_install
