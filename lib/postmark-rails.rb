@@ -1,9 +1,11 @@
 require 'action_mailer'
 require 'postmark'
-require 'postmark-rails/delivery_method'
 
 module PostmarkRails
+  extend ActiveSupport::Autoload
   extend self
+
+  autoload :DeliveryMethod, 'postmark-rails/delivery_method'
 
   def auto_detect_and_install
     if ActionMailer::Base.respond_to?(:add_delivery_method)
