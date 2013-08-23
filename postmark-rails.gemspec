@@ -10,13 +10,6 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://postmarkapp.com}
   s.summary = %q{Postmark adapter for ActionMailer}
 
-  s.post_install_message = %q{
-    ==================
-    Thanks for installing the postmark-rails gem. If you don't have an account, please sign up at http://postmarkapp.com/.
-    Review the README.md for implementation details and examples.
-    ==================
-  }
-
   s.extra_rdoc_files = [
     "LICENSE",
      "README.md"
