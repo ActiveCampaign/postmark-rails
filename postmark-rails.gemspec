@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name = %q{postmark-rails}
   s.version = PostmarkRails::VERSION
   s.authors = ["Petyo Ivanov", "Ilya Sabanin", "Artem Chistyakov"]
-  s.description = %q{Use this plugin in your rails applications to send emails through the Postmark API}
+  s.description = %q{The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via Postmark, an email delivery service for web apps.}
   s.email = %q{ilya@wildbit.com}
   s.homepage = %q{http://postmarkapp.com}
   s.summary = %q{Postmark adapter for ActionMailer}
