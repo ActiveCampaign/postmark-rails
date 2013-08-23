@@ -28,6 +28,8 @@ config.action_mailer.delivery_method = :postmark
 config.action_mailer.postmark_settings = { :api_key => "your-api-key" }
 ```
 
+The `postmark_settings` hash can contain [all options](https://github.com/wildbit/postmark-gem#communicating-with-the-api) supported by `Postmark::ApiClient`.
+
 For the API details, refer to the [developer documentation](http://developer.postmarkapp.com).
 
 ## Tagging your deliveries
