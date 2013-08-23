@@ -1,5 +1,11 @@
 = Changelog
 
+== 0.5.2
+
+* Removed the legacy code providing Rails 2 support.
+* Added a Railtie for proper initialization in Rails 3+.
+* Removed the post-install message.
+
 == 0.5.1
 
 * Upgraded actionmailer dependency to use >= 3.0.0.
