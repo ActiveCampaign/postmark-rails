@@ -1,5 +1,10 @@
 = Changelog
 
+== 0.6.0
+
+* Updated the postmark gem dependency.
+* Inherited inline images support.
+
 == 0.5.2
 
 * Removed the legacy code providing Rails 2 support.

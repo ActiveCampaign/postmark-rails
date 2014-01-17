@@ -59,12 +59,12 @@ The Postmark gem is compatible with [ActionMailer attachments API](http://api.ru
 
 The legacy `:postmark_attachments` attribute is *no longer supported* on Rails 3.2.13 and above.
 
-
 ``` ruby
 class TestMailer < ActionMailer::Base
 
   def message_with_attachment
-    attachments['42.jpg'] = File.read("/path/to/file")
+    attachments.inline['logo.png'] = File.read("/path/to/image") # Inline image
+    attachments['42.jpg'] = File.read("/path/to/file") # Attached file
     mail(
       :subject              => 'hello',
       :to                   => 'sheldon@bigbangtheory.com',

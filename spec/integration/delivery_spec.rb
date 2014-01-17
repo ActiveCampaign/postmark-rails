@@ -27,7 +27,19 @@ describe "Delivering messages with postmark-rails" do
 
   it 'delivers a message with attachments' do
     message = TestMailer.message_with_attachment
+    request = message.to_postmark_hash
 
+    expect(request['Attachments'].count).not_to be_zero
     expect { message.deliver }.to change{message.delivered?}.to(true)
   end
+
+  it 'delivers a message with inline image' do
+    message = TestMailer.message_with_inline_image
+    request = message.to_postmark_hash
+
+    expect(request['Attachments'].count).not_to be_zero
+    expect(request['Attachments'].first).to have_key('ContentID')
+    expect { message.deliver }.to change{message.delivered?}.to(true)
+  end
+
 end
