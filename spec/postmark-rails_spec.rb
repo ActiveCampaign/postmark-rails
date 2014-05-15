@@ -5,39 +5,39 @@ describe "PostmarkRails3" do
 
   it "should allow setting an api key" do
     ActionMailer::Base.postmark_settings = {:api_key => 'api-key'}
-    ActionMailer::Base.postmark_settings[:api_key].should == 'api-key'
+    expect(ActionMailer::Base.postmark_settings[:api_key]).to eq('api-key')
   end
 
   it "should use postmark for delivery" do
-    Postmark::ApiClient.should_receive(:new) { api_client }
-    api_client.should_receive(:deliver_message) do |message|
-      message.subject.should == "hello"
+    expect(Postmark::ApiClient).to receive(:new) { api_client }
+    expect(api_client).to receive(:deliver_message) do |message|
+      expect(message.subject).to eq("hello")
     end
     TestMailer.simple_message.deliver
   end
 
   it "should allow tagging of message" do
-    Postmark::ApiClient.should_receive(:new) { api_client }
-    api_client.should_receive(:deliver_message) do |message|
-      message.tag.to_s.should == "delivery"
+    expect(Postmark::ApiClient).to receive(:new) { api_client }
+    expect(api_client).to receive(:deliver_message) do |message|
+      expect(message.tag.to_s).to eq("delivery")
     end
     TestMailer.tagged_message.deliver
   end
 
   it "should work with multipart messages" do
-    Postmark::ApiClient.should_receive(:new) { api_client }
-    api_client.should_receive(:deliver_message) do |message|
-        message.should be_multipart
-        message.body_text.strip.should == "hello"
-        message.body_html.strip.should == "<b>hello</b>"
+    expect(Postmark::ApiClient).to receive(:new) { api_client }
+    expect(api_client).to receive(:deliver_message) do |message|
+        expect(message).to be_multipart
+        expect(message.body_text.strip).to eq("hello")
+        expect(message.body_html.strip).to eq("<b>hello</b>")
     end
     TestMailer.multipart_message.deliver
   end
 
   it 'should work with messages containing attachments' do
-    Postmark::ApiClient.should_receive(:new) { api_client }
-    api_client.should_receive(:deliver_message) do |message|
-      message.should have_attachments
+    expect(Postmark::ApiClient).to receive(:new) { api_client }
+    expect(api_client).to receive(:deliver_message) do |message|
+      expect(message).to have_attachments
     end
     TestMailer.message_with_attachment.deliver
   end
