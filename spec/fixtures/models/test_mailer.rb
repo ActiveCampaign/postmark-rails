@@ -11,6 +11,10 @@ class TestMailer < ActionMailer::Base
     mail(:tag => 'delivery')
   end
 
+  def tracked_message
+    mail(:track_opens => true)
+  end
+
   def multipart_message
     mail(:subject => "Your invitation to join Mixlr.") do |format|
       format.text
