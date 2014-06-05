@@ -16,7 +16,7 @@ For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/pos
 Add this to your Gemfile: (change version numbers if needed)
 
 ``` ruby
-gem 'postmark-rails', '~> 0.7.0'
+gem 'postmark-rails', '~> 0.8.0'
 ```
 
 Don’t forget to run `bundle install` command every time you change something in the Gemfile.
@@ -32,9 +32,11 @@ The `postmark_settings` hash can contain [all options](https://github.com/wildbi
 
 For the API details, refer to the [developer documentation](http://developer.postmarkapp.com).
 
-## Tagging your deliveries
+## Tracking opens and tagging your deliveries
 
 You can use tags to categorize outgoing messages and attach application-specific information. Tagging the different types of email that you send lets you [review statistics and bounce reports separately](http://developer.postmarkapp.com/developer-build.html#message-format).
+
+Pass `:track_opens` flag to enable/disable open tracking on per-message basis. Check out the [Triggers API](https://github.com/wildbit/postmark-gem/wiki/The-Triggers-API-Support) to see how Postmark can help you control this with tags.
 
 ``` ruby
 class TestMailer < ActionMailer::Base
@@ -44,7 +46,8 @@ class TestMailer < ActionMailer::Base
       :subject => 'hello',
       :to      => 'sheldon@bigbangtheory.com',
       :from    => 'leonard@bigbangtheory.com',
-      :tag     => 'my-tag'
+      :tag     => 'my-tag',
+      :track_opens => true
     )
   end
 

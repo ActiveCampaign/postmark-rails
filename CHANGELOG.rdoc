@@ -1,5 +1,10 @@
 = Changelog
 
+== 0.8.0
+
+* Added support for open tracking.
+* Updated the postmark gem dependency to 1.3.x.
+
 == 0.7.0
 
 * Updated the postmark gem dependency to 1.2.x.
