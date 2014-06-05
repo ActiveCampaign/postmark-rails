@@ -1,9 +1,9 @@
 language: ruby
 rvm:
   - 1.8.7
-  - 1.9.2
   - 1.9.3
   - 2.0.0
+  - 2.1.0
 script: bundle exec rake spec
 gemfile:
   - Gemfile
@@ -15,8 +15,4 @@ matrix:
     - rvm: 1.8.7
       gemfile: Gemfile
     - rvm: 1.8.7
-      gemfile: gemfiles/Gemfile.actionmailer-4.0.x
-    - rvm: 1.9.2
-      gemfile: Gemfile
-    - rvm: 1.9.2
       gemfile: gemfiles/Gemfile.actionmailer-4.0.x
