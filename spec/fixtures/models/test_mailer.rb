@@ -12,7 +12,7 @@ class TestMailer < ActionMailer::Base
   end
 
   def tracked_message
-    mail(:track_opens => true)
+    mail(:track_opens => "true")
   end
 
   def multipart_message

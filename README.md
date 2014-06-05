@@ -36,7 +36,7 @@ For the API details, refer to the [developer documentation](http://developer.pos
 
 You can use tags to categorize outgoing messages and attach application-specific information. Tagging the different types of email that you send lets you [review statistics and bounce reports separately](http://developer.postmarkapp.com/developer-build.html#message-format).
 
-Pass `:track_opens` flag to enable/disable open tracking on per-message basis. Check out the [Triggers API](https://github.com/wildbit/postmark-gem/wiki/The-Triggers-API-Support) to see how Postmark can help you control this with tags.
+Pass `:track_opens => 'true'` to enable/disable open tracking on per-message basis. Check out the [Triggers API](https://github.com/wildbit/postmark-gem/wiki/The-Triggers-API-Support) to see how Postmark can help you control this with tags. **Note that we pass a string here, since it becomes a header value. Passing a boolean may or may not work depending on your Rails version.**
 
 ``` ruby
 class TestMailer < ActionMailer::Base
@@ -47,7 +47,7 @@ class TestMailer < ActionMailer::Base
       :to      => 'sheldon@bigbangtheory.com',
       :from    => 'leonard@bigbangtheory.com',
       :tag     => 'my-tag',
-      :track_opens => true
+      :track_opens => 'true'
     )
   end
 
