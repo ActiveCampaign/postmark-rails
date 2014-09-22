@@ -108,7 +108,7 @@ Looking for the advanced usage examples? Check out [the documentation](https://g
 ## Requirements
 
 * `postmark` gem version 1.0 and higher is required.
-* You will also need a Postmark account, a server and at least one sender signature set up to use it. To get an account, [sign up](https://postmarkapp.com/sign_up)!.
+* You will also need a Postmark account, a server and at least one sender signature set up to use it. To get an account, [sign up](https://postmarkapp.com/sign_up)!
 
 
 ## Note on Patches/Pull Requests
