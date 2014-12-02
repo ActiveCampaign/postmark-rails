@@ -1,5 +1,11 @@
 = Changelog
 
+== 0.9.0
+
+* Enabled HTTPS by default.
+* Added custom User-Agent header.
+* Updated the postmark gem dependency to 1.4.x.
+
 == 0.8.0
 
 * Added support for open tracking.
