@@ -6,7 +6,7 @@ The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via 
 
 ## Supported Rails Versions
 
-* Rails 4.0
+* Rails 4.x
 * Rails 3.x
 
 For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/postmark-rails/tree/v0.4.2). It may miss some new features, but receives all required bug fixes and other support if needed.
@@ -108,7 +108,7 @@ Looking for the advanced usage examples? Check out [the documentation](https://g
 ## Requirements
 
 * `postmark` gem version 1.0 and higher is required.
-* You will also need a Postmark account, a server and at least one sender signature set up to use it. To get an account, [sign up](https://postmarkapp.com/sign_up)!.
+* You will also need a Postmark account, a server and at least one sender signature set up to use it. To get an account, [sign up](https://postmarkapp.com/sign_up)!
 
 
 ## Note on Patches/Pull Requests
