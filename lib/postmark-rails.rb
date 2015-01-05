@@ -5,7 +5,7 @@ module PostmarkRails
   extend self
 
   def install
-    ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark, :api_key => nil
+    ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark
   end
 end
 

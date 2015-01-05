@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe "PostmarkRails3" do
-  let!(:api_client) { Postmark::ApiClient.new('api-key') }
+  let!(:api_client) { Postmark::ApiClient.new('api-token') }
 
-  it "should allow setting an api key" do
-    ActionMailer::Base.postmark_settings = {:api_key => 'api-key'}
-    expect(ActionMailer::Base.postmark_settings[:api_key]).to eq('api-key')
+  it 'should allow setting an api token' do
+    ActionMailer::Base.postmark_settings = {:api_token => 'api-token'}
+    expect(ActionMailer::Base.postmark_settings[:api_token]).to eq('api-token')
   end
 
   it "should use postmark for delivery" do

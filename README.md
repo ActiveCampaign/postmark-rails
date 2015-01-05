@@ -16,7 +16,7 @@ For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/pos
 Add this to your Gemfile: (change version numbers if needed)
 
 ``` ruby
-gem 'postmark-rails', '~> 0.9.0'
+gem 'postmark-rails', '~> 0.10.0'
 ```
 
 Don’t forget to run `bundle install` command every time you change something in the Gemfile.
@@ -25,7 +25,7 @@ Add this to your config/application.rb:
 
 ``` ruby
 config.action_mailer.delivery_method = :postmark
-config.action_mailer.postmark_settings = { :api_key => "your-api-key" }
+config.action_mailer.postmark_settings = { :api_token => "your-api-token" }
 ```
 
 The `postmark_settings` hash can contain [all options](https://github.com/wildbit/postmark-gem#communicating-with-the-api) supported by `Postmark::ApiClient`.
@@ -86,7 +86,7 @@ in batches. To facilitate this we provide a batching endpoint that permits you
 to send up to 500 well-formed Postmark messages in a single API call.
 
 ``` ruby
-client = Postmark::ApiClient.new('your-api-key')
+client = Postmark::ApiClient.new('your-api-token')
 
 messages = []
 messages << DigestMailer.weekly_digest(@user1)

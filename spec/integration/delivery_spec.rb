@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe "Delivering messages with postmark-rails" do
-  let(:api_key) { 'POSTMARK_API_TEST' }
+  let(:api_token) { 'POSTMARK_API_TEST' }
 
   before do
-    ActionMailer::Base.postmark_settings = { :api_key => api_key }
+    ActionMailer::Base.postmark_settings = { :api_token => api_token }
   end
 
   it 'delivers a simple message' do
