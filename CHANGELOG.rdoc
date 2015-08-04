@@ -2,6 +2,10 @@
 
 == 0.10.0
 
+* Updated the postmark gem dependency to 1.6.x.
+
+== 0.10.0
+
 * Updated the postmark gem dependency to 1.5.x
 * Called API access strings tokens instead of keys in documentation and code. Kept backwards compatibility.
 

@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
 
   s.add_dependency('actionmailer', ">= 3.0.0")
-  s.add_dependency('postmark', "~> 1.5.0")
+  s.add_dependency('postmark', "~> 1.6.0")
   s.add_development_dependency('rake')
 
   s.files         = `git ls-files`.split("\n")
