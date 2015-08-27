@@ -1,6 +1,6 @@
 = Changelog
 
-== 0.10.0
+== 0.11.0
 
 * Updated the postmark gem dependency to 1.6.x.
 
