@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'postmark', '~> 1.7.0', path: ENV['POSTMARK_GEM_PATH']
+gem 'postmark', '~> 1.8.0', path: ENV['POSTMARK_GEM_PATH']
 gem 'actionmailer', '~> 4.1.0'
 
 group :test do

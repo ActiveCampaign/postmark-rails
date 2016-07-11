@@ -6,6 +6,7 @@ The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via 
 
 ## Supported Rails Versions
 
+* Rails 5.0
 * Rails 4.x
 * Rails 3.x
 
@@ -16,7 +17,7 @@ For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/pos
 Add this to your Gemfile: (change version numbers if needed)
 
 ``` ruby
-gem 'postmark-rails', '~> 0.10.0'
+gem 'postmark-rails', '~> 0.13.0'
 ```
 
 Don’t forget to run `bundle install` command every time you change something in the Gemfile.
