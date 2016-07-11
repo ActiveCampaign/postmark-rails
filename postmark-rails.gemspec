@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency('actionmailer', ">= 3.0.0")
   s.add_dependency('postmark', "~> 1.7.0")
-  s.add_development_dependency('rake')
+
+  s.add_development_dependency("rake", ("< 11.0.0" if RUBY_VERSION.start_with?("1.8")))
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- spec/*`.split("\n")
