@@ -1,5 +1,8 @@
 source "https://rubygems.org"
 
+gemspec :path => '../'
+
+gem 'json', '< 2.0.0'
 gem 'postmark', '~> 1.8.0', path: ENV['POSTMARK_GEM_PATH']
 gem 'actionmailer', '~> 4.2.0'
 
