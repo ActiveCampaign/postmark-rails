@@ -1,3 +1,4 @@
+require 'active_support/rescuable'
 require 'action_mailer'
 require 'postmark'
 
