@@ -14,24 +14,26 @@ For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/pos
 
 ## Configuring your Rails application
 
-Add this to your Gemfile: (change version numbers if needed)
+Add `postmark-rails` to your Gemfile (change version numbers if needed) and run `bundle install`.
 
 ``` ruby
 gem 'postmark-rails', '~> 0.15.0'
 ```
 
-Don’t forget to run `bundle install` command every time you change something in the Gemfile.
+Save your Postmark API token to [config/secrets.yml](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml).
 
-Add this to your config/application.rb:
+``` yaml
+postmark_api_token: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+Set Postmark as your preferred mail delivery method via `config/application.rb`:
 
 ``` ruby
 config.action_mailer.delivery_method = :postmark
-config.action_mailer.postmark_settings = { :api_token => "your-api-token" }
+config.action_mailer.postmark_settings = { :api_token => Rails.application.secrets.postmark_api_token }
 ```
 
-The `postmark_settings` hash can contain [all options](https://github.com/wildbit/postmark-gem#communicating-with-the-api) supported by `Postmark::ApiClient`.
-
-For the API details, refer to the [developer documentation](http://developer.postmarkapp.com).
+**Note**: The `postmark_settings` hash can contain [any options](https://github.com/wildbit/postmark-gem#communicating-with-the-api) supported by `Postmark::ApiClient`.
 
 ## Tracking opens and tagging your deliveries
 
