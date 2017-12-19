@@ -35,8 +35,8 @@ describe "PostmarkRails3" do
   it "allows to enable open tracking" do
     expect(Postmark::ApiClient).to receive(:new) { api_client }
     expect(api_client).to receive(:deliver_message) do |message|
-      expect(message.track_opens).to be_true
-      expect(message.to_postmark_hash['TrackOpens']).to be_true
+      expect(message.track_opens).to be_truthy
+      expect(message.to_postmark_hash['TrackOpens']).to be true
     end
     deliver(TestMailer.tracked_message)
   end
