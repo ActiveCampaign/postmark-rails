@@ -104,6 +104,101 @@ messages.all?(&:delivered)
 # => true
 ```
 
+## Error handling
+
+The gem respects the `ActionMailer::Base.raise_delivery_errors` setting and will surpress any exceptions
+if it’s set to `false`. When delivery errors are enabled, the gem can raise any one of the exceptions
+listed in the [postmark](https://github.com/wildbit/postmark-gem#error-handling) gem docs.
+
+
+### ActionMailer 5
+
+For ActionMailer 5 and above, use `ActionMailer::Base.rescue_from` to define handlers for
+each error you care about.
+
+#### Example
+
+``` ruby
+class ApplicationMailer < ActionMailer::Base
+  default from: 'user@example.org'
+  layout 'mailer'
+
+  rescue_from Postmark::InactiveRecipientError, with: :reactivate_and_retry
+
+  private
+
+  def postmark_client
+    ::Postmark::ApiClient.new(ActionMailer::Base.postmark_settings[:api_token],
+                              ActionMailer::Base.postmark_settings.except(:api_token))
+  end
+
+
+  # This is just an example. Sometimes you might not want to reactivate
+  # an address that hard bounced.
+  # Warning: Having too many bounces can affect your delivery reputation
+  # with email providers
+  def reactivate_and_retry(error)
+    Rails.logger.info("Error when sending #{message} to #{error.recipients.join(', ')}")
+    Rails.logger.info(error)
+
+    error.recipients.each do |recipient|
+      bounce = postmark_client.bounces(emailFilter: recipient).first
+      next unless bounce
+      postmark_client.activate_bounce(bounce[:id])
+    end
+
+    # Try again immediately
+    message.deliver
+  end
+end
+```
+
+### ActionMailer 4 and below
+
+Wrap any calls to `#deliver_now` in error handlers like the one described
+in the [postmark](https://github.com/wildbit/postmark-gem#error-handling) gem
+docs.
+
+Rails 4.2 introduces `#deliver_later` but doesn’t support `rescue_from` for
+mailer classes. Instead, use the following monkey patch for
+`ActionMailer::DeliveryJob`.
+
+``` ruby
+# app/mailers/application_mailer.rb
+
+class ApplicationMailer < ActionMailer::Base
+  default from: 'user@example.org'
+end
+
+class ActionMailer::DeliveryJob
+  rescue_from Postmark::InactiveRecipientError, with: :reactivate_and_retry
+
+  def postmark_client
+    ::Postmark::ApiClient.new(ActionMailer::Base.postmark_settings[:api_token],
+                              ActionMailer::Base.postmark_settings.except(:api_token))
+  end
+
+
+  # This is just an example. Sometimes you might not want to reactivate
+  # an address that hard bounced.
+  # Warning: Having too many bounces can affect your delivery reputation
+  # with email providers
+  def reactivate_and_retry(error)
+    Rails.logger.info("Error when sending a message to #{error.recipients.join(', ')}")
+    Rails.logger.info(error)
+
+    error.recipients.each do |recipient|
+      bounce = postmark_client.bounces(emailFilter: recipient).first
+      next unless bounce
+      postmark_client.activate_bounce(bounce[:id])
+    end
+
+    # Try again immediately
+    perform(*arguments)
+  end
+end
+```
+
 ## Additional information
 
 Looking for the advanced usage examples? Check out [the documentation](https://github.com/wildbit/postmark-gem/blob/master/README.md) for the `postmark` gem. The `postmark-rails` gem is built on top of it, so you can benefit from all its features.

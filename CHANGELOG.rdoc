@@ -3,6 +3,7 @@
 == 0.16.0
 
 * Update the postmark gem dependency to 1.11.x.
+* Added a section on error handling to the README.
 
 == 0.15.0
 
