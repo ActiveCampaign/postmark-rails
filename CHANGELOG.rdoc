@@ -1,5 +1,9 @@
 = Changelog
 
+== 0.16.0
+
+* Update the postmark gem dependency to 1.11.x.
+
 == 0.15.0
 
 * Update the postmark gem dependency to 1.10.x.
