@@ -230,4 +230,4 @@ Looking for the advanced usage examples? Check out [the documentation](https://g
 
 ## Copyright
 
-Copyright © 2010—2013 Wildbit LLC. See LICENSE for details.
+Copyright © 2010—2018 Wildbit LLC. See LICENSE for details.
