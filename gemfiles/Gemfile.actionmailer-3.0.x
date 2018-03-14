@@ -4,7 +4,7 @@ gemspec :path => '../'
 
 gem 'json', '< 2.0.0'
 gem 'rake', '< 11.0.0'
-gem 'postmark', '~> 1.10.0', :path => ENV['POSTMARK_GEM_PATH']
+gem 'postmark', '~> 1.11.0', :path => ENV['POSTMARK_GEM_PATH']
 gem 'actionmailer', '~> 3.0.0'
 gem 'rack-cache', '~> 1.2.0'
 
