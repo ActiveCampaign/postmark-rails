@@ -14,10 +14,10 @@ For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/pos
 
 ## Configuring your Rails application
 
-Add `postmark-rails` to your Gemfile (change version numbers if needed) and run `bundle install`.
+Add `postmark-rails` to your Gemfile and run `bundle install`.
 
 ``` ruby
-gem 'postmark-rails', '~> 0.15.0'
+gem 'postmark-rails'
 ```
 
 Save your Postmark API token to [config/secrets.yml](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml).
