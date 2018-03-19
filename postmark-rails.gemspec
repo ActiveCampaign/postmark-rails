@@ -10,6 +10,10 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://postmarkapp.com}
   s.summary = %q{Postmark adapter for ActionMailer}
 
+  s.metadata = {
+    "source_code_uri" => "https://github.com/wildbit/postmark-rails"
+  }
+
   s.extra_rdoc_files = [
     "LICENSE",
      "README.md"
