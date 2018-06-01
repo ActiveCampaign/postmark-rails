@@ -106,7 +106,7 @@ messages.all?(&:delivered)
 
 ## Error handling
 
-The gem respects the `ActionMailer::Base.raise_delivery_errors` setting and will surpress any exceptions
+The gem respects the `ActionMailer::Base.raise_delivery_errors` setting and will suppress any exceptions
 if it’s set to `false`. When delivery errors are enabled, the gem can raise any one of the exceptions
 listed in the [postmark](https://github.com/wildbit/postmark-gem#error-handling) gem docs.
 
