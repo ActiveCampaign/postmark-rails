@@ -15,7 +15,7 @@ module PostmarkRails
 
   def self.install
     ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark
-    ActionMailer::Base.include(ActionMailerExtensions)
+    ActionMailer::Base.send(:include, ActionMailerExtensions)
   end
 end
 
