@@ -32,6 +32,11 @@ class TestMailer < ActionMailer::Base
     mail(:subject => "Message with inline image.")
   end
 
+  def message_with_metadata
+    metadata['foo'] = 'bar'
+    mail(:subject => 'Message with metadata.')
+  end
+
   protected
 
   def image_file

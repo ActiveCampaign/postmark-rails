@@ -42,4 +42,12 @@ describe "Delivering messages with postmark-rails" do
     expect { message.deliver }.to change{message.delivered?}.to(true)
   end
 
+  it 'delivers a message with metadata' do
+    message = TestMailer.message_with_metadata
+
+    request = message.to_postmark_hash
+
+    expect(request['Metadata']).to eq('foo' => 'bar')
+    expect { message.deliver }.to change { message.delivered? }.to true
+  end
 end

@@ -3,10 +3,19 @@ require 'action_mailer'
 require 'postmark'
 
 module PostmarkRails
-  extend self
+  module ActionMailerExtensions
+    def metadata
+      @_message.metadata
+    end
 
-  def install
+    def metadata=(val)
+      @_message.metadata=(val)
+    end
+  end
+
+  def self.install
     ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark
+    ActionMailer::Base.include(ActionMailerExtensions)
   end
 end
 
