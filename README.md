@@ -81,6 +81,25 @@ class TestMailer < ActionMailer::Base
 end
 ```
 
+## Attaching metadata to messages
+
+Postmark supports [attaching metadata to messages](https://postmarkapp.com/support/article/1125-custom-metadata-faq-1). All metadata field values will be interpreted and returned in webhook payloads as strings.
+
+``` ruby
+class TestMailer < ActionMailer::Base
+
+  def message_with_metadata
+    metadata['foo'] = 'bar'
+    mail(
+      :subject              => 'meta hello',
+      :to                   => 'sheldon@bigbangtheory.com',
+      :from                 => 'leonard@bigbangtheory.com'
+    )
+  end
+
+end
+```
+
 ## Sending in batches
 
 While Postmark is focused on transactional email, we understand that developers
