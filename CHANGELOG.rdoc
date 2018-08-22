@@ -1,5 +1,9 @@
 = Changelog
 
+== 0.18.0
+
+* Update the postmark gem dependency to 1.14.x.
+
 == 0.17.0
 
 * Add support for metadata.
