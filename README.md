@@ -66,11 +66,7 @@ The `postmark-rails` gem is built on top of it, so you can benefit from all it's
 
 ## Note on Patches/Pull Requests
 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so we don’t break it in a future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-* Send a pull request. Bonus points for topic branches.
+See [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
 
 ## Authors & Contributors
 
