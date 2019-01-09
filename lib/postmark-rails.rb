@@ -14,6 +14,8 @@ module PostmarkRails
   end
 
   def self.install
+    require 'postmark-rails/preview_interceptor'
+    require 'postmark-rails/templated_mailer'
     ActionMailer::Base.add_delivery_method :postmark, Mail::Postmark
     ActionMailer::Base.send(:include, ActionMailerExtensions)
   end
