@@ -1,5 +1,12 @@
 = Changelog
 
+== 0.19.0
+
+* Update the postmark gem dependency to 1.15.x.
+* Added support for templated mailers.
+* Added source_code_uri to the gemspec.
+* Tested against all stable versions of ActionMailer 3.0-5.2 and Ruby 1.8.7-2.6.0.
+
 == 0.18.0
 
 * Update the postmark gem dependency to 1.14.x.
