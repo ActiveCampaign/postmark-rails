@@ -28,6 +28,7 @@ Also you will need a [postmark gem](https://github.com/wildbit/postmark-gem) ver
 
 ### Supported Rails Versions
 
+* Rails 6.0
 * Rails 5.0
 * Rails 4.x
 * Rails 3.x
@@ -43,7 +44,25 @@ Add `postmark-rails` to your Gemfile and run `bundle install`.
 gem 'postmark-rails'
 ```
 
-Save your Postmark API token to [config/secrets.yml](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml).
+
+
+## Rails 6
+Save your Postmark Server API Token to [config/credentials.yml.enc](https://guides.rubyonrails.org/security.html#custom-credentials):
+
+run `rails secret`, then run `rails credentials:edit` and add:
+
+``` yaml
+postmark_api_token: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+Set Postmark as your preferred mail delivery method via `config/application.rb`:
+
+``` ruby
+config.action_mailer.delivery_method = :postmark
+config.action_mailer.postmark_settings = { api_token: Rails.application.credentials.postmark_api_token }
+```
+
+## Rails 3-5
+Save your Postmark Server API token to [config/secrets.yml](http://guides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml).
 
 ``` yaml
 postmark_api_token: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -55,6 +74,8 @@ Set Postmark as your preferred mail delivery method via `config/application.rb`:
 config.action_mailer.delivery_method = :postmark
 config.action_mailer.postmark_settings = { :api_token => Rails.application.secrets.postmark_api_token }
 ```
+
+***
 
 **Note**: The `postmark_settings` hash can contain [any options](https://github.com/wildbit/postmark-gem#communicating-with-the-api) supported by `Postmark::ApiClient`.
 
