@@ -10,5 +10,5 @@ then
   gem install bundler -v '< 2'
 else
   gem update --system
-  gem install bundler
+  gem install bundler -f
 fi
