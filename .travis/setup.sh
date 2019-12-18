@@ -9,6 +9,5 @@ if [[ "$TRAVIS_RUBY_VERSION" < "2.3" ]];
 then
   gem install bundler -v '< 2'
 else
-  gem update --system
   gem install bundler
 fi
