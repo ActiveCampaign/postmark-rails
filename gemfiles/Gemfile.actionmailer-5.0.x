@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec :path => '../'
 
-gem 'postmark', '~> 1.15.0', path: ENV['POSTMARK_GEM_PATH']
+gem 'postmark', '~> 1.15', path: ENV['POSTMARK_GEM_PATH']
 gem 'actionmailer', '~> 5.0.0'
 
 group :test do
