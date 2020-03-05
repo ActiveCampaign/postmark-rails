@@ -2,11 +2,10 @@ source "https://rubygems.org"
 
 gemspec :path => '../'
 
-gem 'json', '< 2.0.0'
 gem 'postmark', '~> 1.15', path: ENV['POSTMARK_GEM_PATH']
-gem 'actionmailer', '~> 4.1.0'
+gem 'actionmailer', '~> 6.0.0'
 
 group :test do
   gem 'rspec', '~> 3.7'
-  gem 'mime-types', '~> 1.25.1'
+  gem 'mime-types', '~> 3.2.2'
 end

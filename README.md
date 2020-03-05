@@ -8,10 +8,10 @@
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://www.opensource.org/licenses/MIT)
 [![Gem Version](https://badge.fury.io/rb/postmark-rails.svg)](https://badge.fury.io/rb/postmark-rails)
 
-[Postmark](https://postmarkapp.com) allows you to send your emails with high delivery rates. 
+[Postmark](https://postmarkapp.com) allows you to send your emails with high delivery rates.
 It also includes detailed statistics. In addition, Postmark can parse incoming emails which are forwarded back to your application.
 
-The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via [Postmark](https://postmarkapp.com). 
+The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via [Postmark](https://postmarkapp.com).
 The gem has been created for fast implementation and fully supports all of [Postmark’s features](https://postmarkapp.com/why).
 
 ## Usage
@@ -21,7 +21,7 @@ For details about Postmark API in general, please check out [Postmark developer 
 
 ## Requirements
 
-You will need a Postmark account, server and sender signature (or verified domain) set up to use it. 
+You will need a Postmark account, server and sender signature (or verified domain) set up to use it.
 For details about setup, check out [wiki pages](https://github.com/wildbit/postmark-rails/wiki/Getting-Started).
 
 Also you will need a [postmark gem](https://github.com/wildbit/postmark-gem) version 1.0 and higher is required.
@@ -33,7 +33,7 @@ Also you will need a [postmark gem](https://github.com/wildbit/postmark-gem) ver
 * Rails 4.x
 * Rails 3.x
 
-For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/postmark-rails/tree/v0.4.2). 
+For Rails 2.3 please take a look at [version 0.4](https://github.com/wildbit/postmark-rails/tree/v0.4.2).
 It may miss some new features, but receives all required bug fixes and other support if needed.
 
 ## Installation
@@ -82,7 +82,7 @@ config.action_mailer.postmark_settings = { :api_token => Rails.application.secre
 
 ### Additional information
 
-Looking for the advanced usage examples? Check out [the documentation](https://github.com/wildbit/postmark-gem/blob/master/README.md) for the [postmark gem](https://github.com/wildbit/postmark-gem). 
+Looking for the advanced usage examples? Check out [the documentation](https://github.com/wildbit/postmark-gem/blob/master/README.md) for the [postmark gem](https://github.com/wildbit/postmark-gem).
 The `postmark-rails` gem is built on top of it, so you can benefit from all it's features.
 
 ## Note on Patches/Pull Requests
@@ -102,14 +102,14 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) file for details.
 
 ## Issues & Comments
 
-Feel free to contact us if you encounter any issues with the library or Postmark API. 
-Please leave all comments, bugs, requests and issues on the Issues page.  
+Feel free to contact us if you encounter any issues with the library or Postmark API.
+Please leave all comments, bugs, requests and issues on the Issues page.
 
 ## License
 
-The Postmark Rails gem is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) license. 
+The Postmark Rails gem is licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) license.
 Refer to the [LICENSE](https://github.com/wildbit/postmark-rails/blob/master/LICENSE) file for more information.
 
 ## Copyright
 
-Copyright © 2018 Wildbit LLC. 
+Copyright © 2018 Wildbit LLC.
