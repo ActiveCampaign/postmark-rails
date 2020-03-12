@@ -1,5 +1,12 @@
 = Changelog
 
+== 0.20.0
+
+* Update the postmark gem dependency to 1.x
+* Added support for Rails 6
+* Dropped support for Ruby 1.8.7 and 1.9.3
+* Added support for Ruby 2.7
+
 == 0.19.0
 
 * Update the postmark gem dependency to 1.15.x.
