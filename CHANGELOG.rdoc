@@ -1,5 +1,9 @@
 = Changelog
 
+== 0.21.0
+
+* Update minimum postmark gem dependency to avoid use of TLS v1
+
 == 0.20.0
 
 * Update the postmark gem dependency to 1.x
