@@ -28,6 +28,7 @@ Also you will need a [postmark gem](https://github.com/wildbit/postmark-gem) ver
 
 ### Supported Rails Versions
 
+* Rails 7.0
 * Rails 6.0
 * Rails 5.0
 * Rails 4.x
@@ -46,7 +47,7 @@ gem 'postmark-rails'
 
 
 
-## Rails 6
+## Rails 6-7
 Save your Postmark Server API Token to [config/credentials.yml.enc](https://guides.rubyonrails.org/security.html#custom-credentials):
 
 run `rails secret`, then run `rails credentials:edit` and add:
