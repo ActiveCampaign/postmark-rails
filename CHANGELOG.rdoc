@@ -1,5 +1,9 @@
 = Changelog
 
+== 0.22.0
+
+* Added support for Rails 7
+
 == 0.21.0
 
 * Update minimum postmark gem dependency to avoid use of TLS v1
