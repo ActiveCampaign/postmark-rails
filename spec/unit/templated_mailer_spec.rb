@@ -16,7 +16,7 @@ RSpec.describe PostmarkRails::TemplatedMailer do
     let(:mailer) do
       make_mailer(described_class) do
         def test_message
-          mail :from => 'sender@wildbit.com', :to => 'recipient@wildbit.com'
+          mail :from => 'sender@postmarkapp.com', :to => 'recipient@postmarkapp.com'
         end
       end
     end
@@ -28,8 +28,8 @@ RSpec.describe PostmarkRails::TemplatedMailer do
     let(:mailer) do
       make_mailer(described_class) do
         def test_message
-          mail :from => 'sender@wildbit.com',
-               :to => 'recipient@wildbit.com',
+          mail :from => 'sender@postmarkapp.com',
+               :to => 'recipient@postmarkapp.com',
                :postmark_template_alias => 'custom_template'
         end
       end
@@ -43,8 +43,8 @@ RSpec.describe PostmarkRails::TemplatedMailer do
       make_mailer(described_class) do
         def test_message
           self.template_model = { :foo => 'bar' }
-          mail :from => 'sender@wildbit.com',
-               :to => 'recipient@wildbit.com'
+          mail :from => 'sender@postmarkapp.com',
+               :to => 'recipient@postmarkapp.com'
         end
       end
     end

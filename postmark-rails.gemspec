@@ -6,12 +6,11 @@ Gem::Specification.new do |s|
   s.version = PostmarkRails::VERSION
   s.authors = ["Petyo Ivanov", "Ilya Sabanin", "Artem Chistyakov"]
   s.description = %q{The Postmark Rails Gem is a drop-in plug-in for ActionMailer to send emails via Postmark, an email delivery service for web apps.}
-  s.email = %q{tema@wildbit.com}
   s.homepage = %q{http://postmarkapp.com}
   s.summary = %q{Postmark adapter for ActionMailer}
 
   s.metadata = {
-    "source_code_uri" => "https://github.com/wildbit/postmark-rails"
+    "source_code_uri" => "https://github.com/ActiveCampaign/postmark-rails"
   }
 
   s.extra_rdoc_files = [
