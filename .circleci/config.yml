@@ -1,0 +1,65 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@1.8.0
+
+jobs:
+  build:
+    parameters:
+      ruby_version:
+        type: string
+      rails_version:
+        type: string
+      mime_types_version:
+        type: string
+        default: "~> 3.1"
+    docker:
+      - image: cimg/ruby:<< parameters.ruby_version >>
+    executor: ruby/default
+    environment:
+      RAILS_TEST_VERSION: << parameters.rails_version >>
+      MIME_TYPES_TEST_VERSION: << parameters.mime_types_version >>
+    steps:
+      - checkout
+      - ruby/install-deps:
+          bundler-version: 2.2.3
+          path: vendor/bundle/rails-<< parameters.rails_version>>
+          with-cache: false # requires Gemfile.lock
+      - run:
+          name: Run tests
+          command: bundle exec rake spec
+
+workflows:
+  tests:
+    jobs:
+      - build:
+          matrix:
+            alias: Rails 3
+            parameters:
+              rails_version: ["~> 3.0", "~> 3.2"]
+              ruby_version: ["2.5"]
+              mime_types_version: ["1.25.1"]
+      - build:
+          matrix:
+            alias: Rails 4
+            parameters:
+              rails_version: ["~> 4.0", "~> 4.1", "~> 4.2"]
+              ruby_version: ["2.5"]
+      - build:
+          matrix:
+            alias: Rails 5
+            parameters:
+              rails_version: ["~> 5.0", "~> 5.1", "~> 5.2"]
+              ruby_version: ["2.5", "2.6", "2.7"]
+      - build:
+          matrix:
+            alias: Rails 6
+            parameters:
+              rails_version: ["~> 6.0"]
+              ruby_version: ["2.5", "2.6", "2.7"]
+      - build:
+          matrix:
+            alias: Rails 7
+            parameters:
+              rails_version: ["~> 7.0"]
+              ruby_version: ["2.7"]
