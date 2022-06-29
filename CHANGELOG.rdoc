@@ -1,5 +1,8 @@
 = Changelog
 
+== 0.22.1
+* Migrated to ActiveCampaign
+
 == 0.22.0
 
 * Added support for Rails 7
