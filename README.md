@@ -2,7 +2,7 @@
     <img src="postmark.png" alt="Postmark Logo" title="Postmark" width="120" height="120" align="right">
 </a>
 
-# Postmark Rails Gem
+# Postmark Rails Gem (Circle CI test)
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/ActiveCampaign/postmark-rails/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ActiveCampaign/postmark-rails/tree/main)
 [![Code Climate](https://codeclimate.com/github/ActiveCampaign/postmark-rails/badges/gpa.svg)](https://codeclimate.com/github/ActiveCampaign/postmark-rails)
