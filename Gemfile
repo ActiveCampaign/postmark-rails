@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'actionmailer', ENV.fetch('RAILS_TEST_VERSION', '~> 7.0')
+gem 'actionmailer', ENV.fetch('RAILS_TEST_VERSION', '~> 8.0')
 
 group :test do
   gem 'rspec', '~> 3.7'
